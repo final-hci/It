@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FindIt | Lost and Found</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <h2 class="logo">FindIt</h2>
+
+        <nav>
+            <button class="nav-link active" data-page="dashboard">Dashboard</button>
+            <button class="nav-link" data-page="browse">Browse Items</button>
+            <button class="nav-link" data-page="report">Report Item</button>
+            <button class="nav-link" data-page="matches">Possible Matches</button>
+            <button class="nav-link" data-page="claims">Claim Requests</button>
+        </nav>
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+            <div>
+                <h1 id="pageTitle">Dashboard</h1>
+                <p id="pageSubtitle">Welcome to FindIt!</p>
+            </div>
+            <div class="user-label">Administrator</div>
+        </header>
+
+        <section class="page active" id="dashboard">
+
+            <div class="summary-grid">
+                <article class="summary-card">
+                    <p>Total Reports</p>
+                    <h2 id="totalReports">0</h2>
+                </article>
+
+                <article class="summary-card">
+                    <p>Lost Items</p>
+                    <h2 id="lostCount">0</h2>
+                </article>
+
+                <article class="summary-card">
+                    <p>Found Items</p>
+                    <h2 id="foundCount">0</h2>
+                </article>
+
+                <article class="summary-card">
+                    <p>Returned Items</p>
+                    <h2 id="returnedCount">0</h2>
+                </article>
+            </div>
+
+            <section class="content-section">
+                <div class="section-heading">
+                    <h2>Recent Reports</h2>
+                    <button class="text-button" data-go="browse">View all</button>
+                </div>
+
+                <div id="recentReports" class="item-list"></div>
+            </section>
+
+            <section class="content-section">
+                <h2>Recent Activity</h2>
+                <div id="recentActivity" class="activity-list"></div>
+            </section>
+
+        </section>
+
+        <section class="page" id="browse">
+
+            <section class="content-section">
+                <h2>Browse Items</h2>
+
+                <div class="toolbar">
+                    <input id="searchItems" type="search" placeholder="Search items...">
+
+                    <select id="itemFilter">
+                        <option value="all">All Items</option>
+                        <option value="lost">Lost Items</option>
+                        <option value="found">Found Items</option>
+                        <option value="Returned">Returned Items</option>
+                    </select>
+                </div>
+
+                <div id="allItems" class="item-list"></div>
+            </section>
+
+        </section>
+
+        <section class="page" id="report">
+
+            <section class="content-section form-section">
+                <h2>Report an Item</h2>
+                <p class="muted">Provide the details below.</p>
+
+                <form id="reportForm">
+
+                    <label for="reportType">Report Type</label>
+                    <select id="reportType" required>
+                        <option value="lost">Lost Item</option>
+                        <option value="found">Found Item</option>
+                    </select>
+
+                    <label for="itemName">Item Name</label>
+                    <input id="itemName" required placeholder="Enter item name">
+
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="">Select Category</option>
+                        <option>Electronics</option>
+                        <option>Clothing</option>
+                        <option>Accessories</option>
+                        <option>School Supplies</option>
+                        <option>Documents</option>
+                        <option>Others</option>
+                    </select>
+
+                    <label for="description">Description</label>
+                    <textarea id="description" rows="3" required></textarea>
+
+                    <div class="form-grid">
+                        <div>
+                            <label for="color">Color</label>
+                            <input id="color" required>
+                        </div>
+
+                        <div>
+                            <label for="brand">Brand</label>
+                            <input id="brand">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div>
+                            <label for="location">Location</label>
+                            <input id="location" required>
+                        </div>
+
+                        <div>
+                            <label for="itemDate">Date</label>
+                            <input id="itemDate" type="date" required>
+                        </div>
+                    </div>
+
+                    <label for="contact">Contact Information</label>
+                    <input id="contact" required>
+
+                    <label for="itemImage">Item Image</label>
+                    <input id="itemImage" type="file" accept="image/*">
+
+                    <p class="hint">Maximum image size: 700 KB.</p>
+
+                    <button class="primary-button" type="submit">
+                        Submit Report
+                    </button>
+
+                </form>
+            </section>
+
+        </section>
+
+        <section class="page" id="matches">
+            <section class="content-section">
+                <h2>Possible Matches</h2>
+                <p class="muted">Similar lost and found items.</p>
+                <div id="matchList" class="item-list"></div>
+            </section>
+        </section>
+
+        <section class="page" id="claims">
+            <section class="content-section">
+                <h2>Claim Requests</h2>
+                <p class="muted">Manage item claim requests.</p>
+                <div id="claimList" class="item-list"></div>
+            </section>
+        </section>
+
+    </main>
+
+    <script src="main.js"></script>
+
+</body>
+                          </html>
+  
